@@ -7,11 +7,11 @@ var D:Double = (b * b)-(4 * a * c)
 if(D < 0){
     print("В уравнении нет корней")
 }else if(D == 0){
-    var x1 = ((b * -1) + sqrt(D)) / (2 * a)
+    let x1 = ((b * -1) + sqrt(D)) / (2 * a)
     print("В уравнении один корень \(x1)")
 }else if(D > 0){
-    var x1 = ((b * -1) + sqrt(D)) / (2 * a)
-    var x2 = ((b * -1) - sqrt(D)) / (2 * a)
+    let x1 = ((b * -1) + sqrt(D)) / (2 * a)
+    let x2 = ((b * -1) - sqrt(D)) / (2 * a)
     print("В уравнении два корня \(x1) , \(x2)")
 }
 
@@ -31,10 +31,17 @@ var hypotenuse = sqrt(sumOfLegs)
 print("Гипотенуза прямоугольного треугольника: \(hypotenuse)")
 
 //Найти сумму вклада через 5 лет
-var userSum:Double = 10000
-var percent:Double = 5.7
-var yearsOfContribution = 5
-var totalSum = userSum + (userSum / 100 * percent) * Double(yearsOfContribution)
-print("Сумма вашего вклада через 5 лет: \(totalSum)")
+print("Введите сумму вклада")
+var userSum = NSString(string:readLine() ?? "0").doubleValue
+print("Введите процентную ставку")
+var percent = NSString(string:readLine() ?? "0").doubleValue
+var yearsOfContribution:Double = 5
+if(userSum > 0 && percent > 0){
+    let totalSum = userSum + userSum / 100 * percent * yearsOfContribution
+    print("Сумма вашего вклада через 5 лет: \(totalSum)")
+} else{
+    print("Вы ввели некорректные данные")
+}
+
 
 
